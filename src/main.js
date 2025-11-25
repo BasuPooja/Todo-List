@@ -1,9 +1,9 @@
 import './assets/main.css'
 
-// import { createApp } from 'vue'
-// import App from './App.vue'
+import { createApp } from 'vue'
+import App from './App.vue'
 
-// createApp(App).mount('#app')
+createApp(App).mount('#app')
 
 /* --------------Global Build --------------*/
 
@@ -19,12 +19,24 @@ import './assets/main.css'
 
 /* --------------ES Module Build --------------*/
 
-const { createApp } = Vue
+// const { createApp } = Vue
 
-createApp({
-  data() {
-    return {
-      message: 'Hello Vue!'
-    }
-  }
-}).mount('#app')
+// createApp({
+//   data() {
+//     return {
+//       message: 'Hello Vue!'
+//     }
+//   }
+// }).mount('#app')
+
+
+// const app = Vue.createApp({
+//   data() {
+//     return {
+//       message: "Hello Pooja, Vue is working!",
+//       count: 0
+//     };
+//   }
+// });
+
+// app.mount("#app");
