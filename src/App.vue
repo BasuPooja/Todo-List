@@ -37,7 +37,7 @@ export default {
   <button @click="count++">Count is: {{ count }}</button>
 </template> -->
 
-<template>
+<!-- <template>
   <div class="card">
     <h2>Text Interpolation</h2>
 
@@ -70,6 +70,95 @@ export default {
   border-radius: 8px;
   font-family: Arial;
 }
+</style> -->
+
+
+<!-- <template>
+  <div>
+    <h2>Attribute Binding</h2>
+  </div>
+</template> -->
+
+
+
+<template>
+  <div class="box">
+    <h2>Event Binding (v-on / @) Example</h2>
+
+    
+    <button @click="increment">Count: {{ count }}</button>
+
+    <br /><br />
+
+    
+    <input
+      type="text"
+      placeholder="Type something"
+      @input="updateMessage($event)"
+    />
+    <p>Typed: {{ message }}</p>
+
+    <br />
+
+    
+    <input
+      type="text"
+      placeholder="Press Enter"
+      @keyup.enter="enterPressed"
+    />
+    <p>{{ enterMsg }}</p>
+
+    <br />
+
+    
+    <h3 @mouseover="hoverMsg = 'You hovered the text!'">
+      Hover over this text
+    </h3>
+    <p>{{ hoverMsg }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0,
+      message: "",
+      enterMsg: "",
+      hoverMsg: ""
+    };
+  },
+
+  methods: {
+    increment() {
+      this.count++;
+    },
+    updateMessage(e) {
+      this.message = e.target.value;
+    },
+    enterPressed() {
+      this.enterMsg = "Enter key pressed!";
+    }
+  }
+};
+</script>
+
+<style>
+.box {
+  width: 350px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: Arial;
+}
+button {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+input {
+  padding: 6px;
+  width: 90%;
+}
 </style>
-
-
