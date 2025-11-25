@@ -81,9 +81,9 @@ export default {
 
 
 
-<template>
+<!-- <template>
   <div class="box">
-    <h2>Event Binding (v-on / @) Example</h2>
+    <h2>Event Binding (v-on / @) </h2>
 
     
     <button @click="increment">Count: {{ count }}</button>
@@ -160,5 +160,50 @@ button {
 input {
   padding: 6px;
   width: 90%;
+}
+</style> -->
+
+
+<template>
+  <div class="container">
+    <h1>Conditional Rendering Demo</h1>
+
+    <button @click="isLoggedIn = !isLoggedIn">
+      Toggle Login
+    </button>
+
+    <p v-if="isLoggedIn">Welcome, you are logged in! ✔</p>
+    <p v-else>You are logged out. ❌</p>
+
+    <br />
+
+    <h3>Score Checking Example</h3>
+    <input type="number" v-model="score" placeholder="Enter score" />
+
+    <p v-if="score >= 80">Excellent 🎉</p>
+    <p v-else-if="score >= 50">Good 🙂</p>
+    <p v-else>Try Again 😔</p>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const isLoggedIn = ref(false);
+const score = ref(0);
+</script>
+
+<style>
+.container {
+  padding: 20px;
+  font-family: Arial;
+}
+button {
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+input {
+  padding: 6px;
+  margin-top: 10px;
 }
 </style>
