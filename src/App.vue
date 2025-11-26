@@ -238,10 +238,10 @@ const users = ref([
 </style> -->
 
 
-<template>
+<!-- <template>
   <div class="container">
     <h1>Array Change Detection</h1>
-<br>
+    <br>
     <h2>Original Items:</h2>
     <p>{{ items }}</p>
     <br>
@@ -250,8 +250,8 @@ const users = ref([
       <button @click="removeLast">pop()</button>
       <button @click="removeFirst">shift()</button>
       <button @click="addFirst">unshift()</button>
-      <button @click="removeFromMiddle">splice()</button>
-      <button @click="addInMiddle">splice()</button>
+      <button @click="removeFromMiddle">splice()->RevomeInMid</button>
+      <button @click="addInMiddle">splice()->AddInMid</button>
       <button @click="sortItems">sort()</button>
       <button @click="reverseItems">reverse()</button>
       <button @click="filterItems">filter()</button>
@@ -345,6 +345,80 @@ const concatItems = () => {
 button {
   margin: 5px;
   padding: 6px 12px;
+}
+</style> -->
+
+
+<template>
+  <div class="container">
+    <h1>Question & Answer Bot</h1>
+
+    <input 
+      v-model="question" 
+      type="text" 
+      placeholder="Ask your question..."
+    />
+<p>{{ question }}</p>
+    <p><strong>Answer:</strong> {{ answer }}</p>
+
+    <p v-if="loading">Loading...</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      question: "",
+      answer: "Questions usually contain a question mark. ;-)",
+      loading: false
+    };
+  },
+
+  watch: {
+    question(newQ, oldQ) {
+      console.log("Old:", oldQ, "New:", newQ);
+
+      // If question contains “?”, call API
+      if (newQ.includes("?")) {
+        this.getAnswer();
+      }
+    }
+  },
+
+  methods: {
+    async getAnswer() {
+      this.loading = true;
+      this.answer = "Thinking...";
+
+      try {
+        const res = await fetch("https://yesno.wtf/api");
+        const data = await res.json();
+        this.answer = data.answer;
+      } catch (err) {
+        this.answer = "Error: " + err;
+      } finally {
+        this.loading = false;
+      }
+    }
+  }
+};
+</script>
+
+<style>
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 </style>
 
