@@ -163,28 +163,18 @@ input {
 }
 </style> -->
 
-
-<template>
+<!-- <template>
   <div class="container">
     <h1>Conditional Rendering Demo</h1>
-
-    <button @click="isLoggedIn = !isLoggedIn">
-      Toggle Login
-    </button>
-
-    <p v-if="isLoggedIn">Welcome, you are logged in! ✔</p>
-    <p v-else>You are logged out. ❌</p>
-
-    <br />
 
     <h3>Score Checking Example</h3>
     <input type="number" v-model="score" placeholder="Enter score" />
 
-    <p v-if="score >= 80">Excellent 🎉</p>
-    <p v-else-if="score >= 50">Good 🙂</p>
-    <p v-else>Try Again 😔</p>
+    <p v-if="score >= 80">Excellent</p>
+    <p v-else-if="score >= 50">Good</p>
+    <p v-else>Try Again</p>
   </div>
-</template>
+</template> 
 
 <script setup>
 import { ref } from "vue";
@@ -206,4 +196,156 @@ input {
   padding: 6px;
   margin-top: 10px;
 }
+</style> -->
+
+<!-- <template>
+  <div class="container">
+    <h1>List Rendering (v-for) Demo</h1>
+
+    <h3>Fruits List:</h3>
+    <ul>
+      <li v-for="(fruit, index) in fruits" :key="index">
+        {{ index + 1 }}. {{ fruit }}
+      </li>
+    </ul>
+
+    <h3>Users List:</h3>
+    <ul>
+      <li v-for="user in users" :key="user.id">
+        {{ user.id }} — {{ user.name }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const fruits = ref(["Apple", "Banana", "Mango", "Orange"]);
+
+const users = ref([
+  { id: 1, name: "Pooja" },
+  { id: 2, name: "Aarav" },
+  { id: 3, name: "Kiran" },
+]);
+</script>
+
+<style>
+.container {
+  padding: 20px;
+  font-family: Arial;
+}
+</style> -->
+
+
+<template>
+  <div class="container">
+    <h1>Array Change Detection</h1>
+<br>
+    <h2>Original Items:</h2>
+    <p>{{ items }}</p>
+    <br>
+    <div style="height: 30px;">
+      <button @click="addItem">push()</button>
+      <button @click="removeLast">pop()</button>
+      <button @click="removeFirst">shift()</button>
+      <button @click="addFirst">unshift()</button>
+      <button @click="removeFromMiddle">splice()</button>
+      <button @click="addInMiddle">splice()</button>
+      <button @click="sortItems">sort()</button>
+      <button @click="reverseItems">reverse()</button>
+      <button @click="filterItems">filter()</button>
+      <button @click="sliceItems">slice()</button>
+      <button @click="concatItems">concat()</button>
+    </div>
+    <br>
+    <br>
+    <div>
+      <br>
+      <h2>Updated Items:</h2>
+      <p>{{ items }}</p>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+  { name: "A", price: 50 },
+  { name: "B", price: 150 },
+  { name: "C", price: 200 }
+]);
+
+/* -------------   MUTATION METHODS (Vue Detects Automatically)  ----------------------------- */
+
+// push() Add item at end
+const addItem = () => {
+  items.value.push({ name: "New Item", price: 120 });
+};
+
+// pop() Remove last item
+const removeLast = () => {
+  items.value.pop();
+};
+
+// shift() Remove first item
+const removeFirst = () => {
+  items.value.shift();
+};
+
+// unshift() Add item at start
+const addFirst = () => {
+  items.value.unshift({ name: "First", price: 300 });
+};
+
+// splice() Remove items
+const removeFromMiddle = () => {
+  items.value.splice(1, 1); // remove 1 item at index 1
+};
+
+// splice() Add items
+const addInMiddle = () => {
+  items.value.splice(1, 0, { name: "X", price: 90 }, { name: "Y", price: 80 });
+};
+
+// sort()
+const sortItems = () => {
+  items.value.sort((a, b) => a.name.localeCompare(b.name));
+};
+
+// reverse()
+const reverseItems = () => {
+  items.value.reverse();
+};
+
+/* ----------------------   NON-MUTATION METHODS (Return New Arrays) ----------------------- */
+
+// filter()
+const filterItems = () => {
+  items.value = items.value.filter(item => item.price > 100);
+};
+
+// slice()
+const sliceItems = () => {
+  items.value = items.value.slice(0, 2);
+};
+
+// concat()
+const concatItems = () => {
+  items.value = items.value.concat([{ name: "Extra", price: 500 }]);
+};
+</script>
+
+<style>
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+button {
+  margin: 5px;
+  padding: 6px 12px;
+}
 </style>
+
+
