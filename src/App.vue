@@ -349,7 +349,7 @@ button {
 </style> -->
 
 
-<template>
+<!-- <template>
   <div class="container">
     <h1>Question & Answer Bot</h1>
 
@@ -358,7 +358,9 @@ button {
       type="text" 
       placeholder="Ask your question..."
     />
-<p>{{ question }}</p>
+
+    <p>{{ question }}</p>
+
     <p><strong>Answer:</strong> {{ answer }}</p>
 
     <p v-if="loading">Loading...</p>
@@ -379,6 +381,7 @@ export default {
     question(newQ, oldQ) {
       console.log("Old:", oldQ, "New:", newQ);
 
+      
       // If question contains “?”, call API
       if (newQ.includes("?")) {
         this.getAnswer();
@@ -420,6 +423,70 @@ input {
   padding: 10px;
   margin-bottom: 15px;
 }
+</style> -->
+
+
+<template>
+  <div class="container">
+    <h1>Vue Instance – data(), methods & Local State</h1>
+
+    <!-- Showing data -->
+    <p>Name: {{ name }}</p>
+    <p><strong>Count:</strong> {{ count }}</p>
+
+    <!-- Updating data using methods -->
+    <button @click="increment">Increment Count</button>
+    <button @click="toggleName">Toggle Name</button>
+
+    <p v-if="isVisible">This text is controlled by local state (isVisible)</p>
+    <button @click="toggleVisibility">Show/Hide Text</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "Pooja",
+      count: 0,
+      isVisible: true
+    };
+  },
+
+  methods: {
+    increment() {
+      this.count++;
+    },
+    toggleName() {
+      this.name = this.name === "Pooja" ? "SuperBotics Intern" : "Pooja";
+    },
+    toggleVisibility() {
+      this.isVisible = !this.isVisible;
+    }
+  }
+};
+</script>
+
+<style>
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  border: none;
+  background: #42b883;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
 </style>
+
 
 
