@@ -426,15 +426,14 @@ input {
 </style> -->
 
 
-<template>
+<!-- <template>
   <div class="container">
     <h1>Vue Instance – data(), methods & Local State</h1>
 
-    <!-- Showing data -->
-    <p>Name: {{ name }}</p>
+    <p><strong>Name:</strong> {{ name }}</p>
     <p><strong>Count:</strong> {{ count }}</p>
 
-    <!-- Updating data using methods -->
+    
     <button @click="increment">Increment Count</button>
     <button @click="toggleName">Toggle Name</button>
 
@@ -486,7 +485,111 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-</style>
+</style> 
+
+ 
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    };
+  },
+
+  created() {
+    console.log("created() - data is ready:", this.count);
+  },
+
+  mounted() {
+    console.log("mounted() - component is on screen!");
+  },
+
+  updated() {
+    console.log("updated() - data changed:", this.count);
+  },
+
+  unmounted() {
+    console.log("unmounted() - component removed!");
+  },
+
+  methods: {
+    increment() {
+      this.count++;
+    }
+  }
+};
+</script> -->
 
 
 
+<!----------------- LifeCycle hooks ------------>
+
+<!----------- Created --------->
+
+<!-- <template>
+  <h2>created Example</h2>
+</template>
+
+<script>
+export default {
+  data() {
+    return { msg: "Vue is created!" };
+  },
+
+  created() {
+    console.log("created data available:", this.msg);
+  }
+};
+</script> -->
+
+
+<!---------- mounted -------->
+
+<!-- <template>
+  <p id="title">mounted Example</p>
+</template>
+
+<script>
+export default {
+  mounted() {
+    console.log("mounted Component added to DOM");
+    const el = document.getElementById("title");
+    el.style.color = "green";
+  }
+};
+</script> -->
+
+<!-------------- Updated -------------->
+
+<!-- <template>
+  <div>
+    <h2>updated Example</h2>
+    <p>Count: {{ count }}</p>
+    <button @click="count++">Increase</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return { count: 0 };
+  },
+
+  updated() {
+    console.log("updated DOM re-rendered");
+  }
+};
+</script> -->
+
+<!---------------- Unmounted -------------->
+<!-- <template>
+  <h2>Unmounted Example</h2>
+</template>
+
+<script>
+export default {
+  unmounted() {
+    console.log("unmounted Component removed from DOM");
+  }
+};
+</script> -->
