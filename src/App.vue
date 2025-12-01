@@ -582,7 +582,8 @@ export default {
 </script> -->
 
 <!---------------- Unmounted -------------->
-<!-- <template>
+<!-- 
+<template>
   <h2>Unmounted Example</h2>
 </template>
 
@@ -593,3 +594,23 @@ export default {
   }
 };
 </script> -->
+
+<template>
+  <div>
+    <h2>Parent Component</h2>
+    <!-- <ChildComp message="props.name" :count=props.id /> -->
+    <!-- <ChildComp message="props.name" :count=props.id /> -->
+    <ChildComp :comment_ids="[234, 266, 273]" />
+
+
+  </div>
+</template>
+
+<script>
+import ChildComp from "./components/ChildComp.vue";
+
+export default {
+  components: { ChildComp }
+};
+</script>
+
