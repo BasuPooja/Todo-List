@@ -595,11 +595,11 @@ export default {
 };
 </script> -->
 
-<template>
+<!-- <template>
   <div>
     <h2>Parent Component</h2>
     <!-- <ChildComp message="props.name" :count=props.id /> -->
-    <!-- <ChildComp message="props.name" :count=props.id /> -->
+    <!-- <ChildComp message="props.name" :count=props.id /> 
     <ChildComp :comment_ids="[234, 266, 273]" />
 
 
@@ -612,5 +612,34 @@ import ChildComp from "./components/ChildComp.vue";
 export default {
   components: { ChildComp }
 };
-</script>
+</script> -->
 
+<!-- emit  -->
+
+
+<template>
+  <div>
+    <h2>Parent</h2>
+    <p>Message from child: {{ childMsg }}</p>
+
+    <ChildComp @send-message="updateMessage" />
+  </div>
+</template>
+
+<script>
+import ChildComp from "./components/ChildComp.vue";
+
+export default {
+  components: { ChildComp },
+  data() {
+    return {
+      childMsg: ""
+    };
+  },
+  methods: {
+    updateMessage(msg) {
+      this.childMsg = msg;
+    }
+  }
+};
+</script>
