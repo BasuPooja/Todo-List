@@ -39,7 +39,7 @@ export default {
 
 <!-- emit  -->
 
-<template>
+<!-- <template>
   <div>
     <button @click="sendToParent">Send Message to Parent</button>
   </div>
@@ -53,5 +53,40 @@ export default {
     }
   }
 };
-</script>
+</script> -->
 
+<!--------------------------- default slot --------------------->
+
+<!-- <template>
+  <div class="ChildComp">
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {};
+</script> -->
+
+
+<!-------------------------------- named slot ----------------------->
+
+
+<template>
+  <div class="ChildComp">
+    <header>
+      <slot name="header"></slot>
+    </header>
+
+    <main>
+      <slot></slot>   <!-- default slot -->
+    </main>
+
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>

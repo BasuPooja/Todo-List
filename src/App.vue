@@ -616,7 +616,7 @@ export default {
 
 <!-- emit  -->
 
-
+<!-- 
 <template>
   <div>
     <h2>Parent</h2>
@@ -642,4 +642,82 @@ export default {
     }
   }
 };
+</script> -->
+
+<!----------------- default slot  ---------->
+<!-- <template>
+  <ChildComp>
+    <h2>Hello Pooja</h2>
+    <p>This content goes inside the slot.</p>
+  </ChildComp>
+</template>
+
+<script>
+import ChildComp from "./components/ChildComp.vue";
+
+export default {
+  components: { ChildComp }
+};
+</script> -->
+
+<!----------------- named slot  --------------->
+
+<template>
+  <ChildComp>
+
+    <template #header>
+      <h1>This is Header Content</h1>
+    </template>
+
+    <p>This goes to **default slot**.</p>
+
+    <template #footer>
+      <p>Footer © 2025</p>
+    </template>
+
+  </ChildComp>
+</template>
+
+<script>
+import ChildComp from "./components/ChildComp.vue";
+
+export default {
+  components: { ChildComp }
+};
 </script>
+
+
+
+
+
+
+<!-- <template>
+  <div>
+    <h1>All Task at same compnent</h1>
+    <br>
+    <button @click="task = 'CounterApplication'" style="margin-inline-start: 10px; height: 25px;">Counter </button>
+
+    <button @click="task = 'TodoList'" style="margin-inline-start: 10px; height: 25px;">TodoList </button>
+    <br>
+    <br>
+    <component :is = "task"></component>
+  </div>
+</template>
+<script>
+import CounterApplication from './components/CounterApplication.vue';
+import TodoList from './components/TodoList.vue';
+
+export default{
+  data(){
+    return{
+      task: "CounterApplication"
+    };
+  },
+  components:{
+    CounterApplication,
+    TodoList
+  }
+};
+</script> -->
+
+
