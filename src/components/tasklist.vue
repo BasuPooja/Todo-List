@@ -1,5 +1,6 @@
 <template>
     <li>
+        
         {{ tasks }}
         <button style="background-color:  green;" @click="">edit</button>
         <button style="background-color:  red;" @click="$emit('remove')">delete</button>

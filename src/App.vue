@@ -687,12 +687,12 @@ export default {
 </script> -->
 
 
-<template>
+<!-- <template>
 <div style="font-size: 30px;">
 
-  <!-- <input v-model="username" placeholder="Enter name"> -->
-  <!-- <input v-model.lazy="username" placeholder="Enter name"> -->
-  <!-- <input v-model.trim="username" placeholder="Enter name"> -->
+  <input v-model="username" placeholder="Enter name">
+  <input v-model.lazy="username" placeholder="Enter name">
+  <input v-model.trim="username" placeholder="Enter name">
 
   <input v-model.number="username" placeholder="Enter name">
   <p>You typed: {{ username }}</p> 
@@ -737,7 +737,13 @@ export default {
   <option value="3">3</option>
   <option value="4">4</option>
 </select>
+
 <br>
+<br>
+<input
+  :value="searchText"
+  @input="searchText = $event.target.value"
+/>
 
 </template>
 
@@ -751,17 +757,17 @@ export default {
   }
 }
 </script>
+ -->
 
 
 
-
-<!-- <template>
+<template>
   <div>
     <h1>All Task at same compnent</h1>
     <br>
-    <button @click="task = 'CounterApplication'" style="margin-inline-start: 10px; height: 25px;">Counter </button>
+    <button @click="task = 'CounterApplication'" class="hbtn">Counter </button>
 
-    <button @click="task = 'TodoList'" style="margin-inline-start: 10px; height: 25px;">TodoList </button>
+    <button @click="task = 'TodoList'" class="hbtn" >TodoList </button>
     <br>
     <br>
     <component :is = "task"></component>
@@ -782,6 +788,16 @@ export default{
     TodoList
   }
 };
-</script> -->
+</script>
 
+<style>
+.hbtn{
+  margin-inline-start: 10px; 
+  height: 35px; 
+  background-color:rgb(78, 226, 226);
+  
+  font-weight: bold;
+  font-size: 20px;
+}
+</style>
 
