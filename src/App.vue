@@ -662,7 +662,7 @@ export default {
 
 <!----------------- named slot  --------------->
 
-<template>
+<!-- <template>
   <ChildComp>
 
     <template #header>
@@ -684,9 +684,73 @@ import ChildComp from "./components/ChildComp.vue";
 export default {
   components: { ChildComp }
 };
+</script> -->
+
+
+<template>
+<div style="font-size: 30px;">
+
+  <!-- <input v-model="username" placeholder="Enter name"> -->
+  <!-- <input v-model.lazy="username" placeholder="Enter name"> -->
+  <!-- <input v-model.trim="username" placeholder="Enter name"> -->
+
+  <input v-model.number="username" placeholder="Enter name">
+  <p>You typed: {{ username }}</p> 
+
+  
+
+<br>
+  <span>Multiline message: </span>
+  <p style="white-space: pre-line;"> {{ message }} </p>
+  <textarea v-model ="message" placeholder="Add multiple line" ></textarea>
+
+  <br>
+  <input type="checkbox" id="cb1" v-model="checked" />
+  <label for ="cb1"> {{ checked }}</label>
+
+  <br>
+  <div>Checked names: {{ checkedNames }}</div>
+  <input type="checkbox" id="a" value="A" v-model="checkedNamez"/>
+  <label for = "a">A</label>
+
+  <input type="checkbox" id="b" value="B" v-model="checkedNamez"/>
+  <label for = "a">B</label>
+
+  <input type="checkbox" id="c" value="C" v-model="checkedNamez"/>
+  <label for = "a">B</label>
+
+  <div>Picked: {{ picked }}</div>
+
+  <input type="radio" id="1" value="1" v-model="picked"/>
+  <label for = "1">1</label>
+
+  <input type="radio" id="2" value="2" v-model="picked"/>
+  <label for = "2">2</label>
+
+  <input type="radio" id="3" value="3" v-model="picked"/>
+  <label for = "3">3</label>
+</div>
+<br>
+<select v-model="selected">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+<br>
+
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      username: "",
+      checkedName:[]
+    }
+  }
+}
 </script>
-
-
 
 
 
