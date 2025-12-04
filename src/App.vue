@@ -759,9 +759,9 @@ export default {
 </script>
  -->
 
+<!---------------------------- Todo List ------------------------->
 
-
-<template>
+<!-- <template>
   <div>
     <h1>All Task at same compnent</h1>
     <br>
@@ -799,5 +799,17 @@ export default{
   font-weight: bold;
   font-size: 20px;
 }
-</style>
+</style> -->
 
+<template>
+  <router-view/>
+</template>
+
+<script>
+export default {
+  name:'App',
+  components: {
+
+  }
+}
+</script>
